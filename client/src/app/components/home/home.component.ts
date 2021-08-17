@@ -2,6 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { IMovie } from "src/app/interfaces/movie.interface";
+import { IUser } from "src/app/interfaces/user.interface";
+import { AuthService } from "src/app/services/auth.service";
 import { MoviesService } from "src/app/services/movies.service";
 
 @Component({
@@ -11,15 +13,20 @@ import { MoviesService } from "src/app/services/movies.service";
 })
 export class HomeComponent implements OnInit {
   movies$: BehaviorSubject<IMovie[]>;
+  user: IUser;
 
-  constructor(private moviesService: MoviesService, private http: HttpClient) {}
+  constructor(
+    private moviesService: MoviesService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.getMovies().subscribe((data) => console.log(data));
     this.movies$ = this.moviesService.movies;
+    this.authService.user$.subscribe((user) => (this.user = user));
   }
 
-  getMovies(): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>(`http://localhost:3000/api/movies`);
+  deleteMovie($event) {
+    const { id, userId } = $event;
+    this.moviesService.deleteMovie(id, userId);
   }
 }

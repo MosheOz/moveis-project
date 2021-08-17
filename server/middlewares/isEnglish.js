@@ -3,8 +3,8 @@ const isEnglish = (req, res, next) => {
   const { title, category, url, image } = req.body;
   if (testCharacters(title) || testCharacters(category)) {
     return res
-      .status(401)
-      .send({ error: "Can't contain non english characters" });
+      .status(400)
+      .send({ err: "Can't contain non english characters" });
   }
   next();
 };

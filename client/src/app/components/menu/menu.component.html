@@ -1,0 +1,38 @@
+<ul class="menu" *ngIf="(user$ | async) as user; else login">
+    <span class="menu__close" (click)="toggleNavbar()">&#10006;</span>
+    <li class="menu__li menu__welcome">Welcome {{ user.name }}</li>
+    <li><a class="active menu__li" (click)="filterByCategory(null)">Home</a></li>
+    <li class="menu__li" *ngFor="let c of getCategories()"><a (click)="filterByCategory(c)">{{ c }}</a></li>
+    <li class="menu__li menu__add-movie" *ngIf="user.role === 'admin'" (click)="onAddMovie()">Add Movie</li>
+    <li class="menu__auth menu__li" routerLink="/auth" (click)="onLogout()">Logout</li>
+</ul>
+
+
+<ul class="menu-res" *ngIf="(user$ | async) as user; else loginRes">
+    <span class="menu__close" (click)="toggleNavbar()">&#10006;</span>
+    <li class="menu__li menu__welcome">Welcome {{ user.name }}</li>
+    <li><a class="active menu__li" (click)="filterByCategory(null)">Home</a></li>
+    <li class="menu__li" *ngFor="let c of getCategories()"><a (click)="filterByCategory(c)">{{ c }}</a></li>
+    <li class="menu__li menu__auth" *ngIf="user.role === 'admin'" (click)="onAddMovie()">Add Movie</li>
+    <li class="menu__auth menu__li" routerLink="/auth" (click)="onLogout()">Logout</li>
+</ul>
+
+<div class="menu__hamburger" (click)="toggleNavbar()">
+    <div class="menu__hamburger--line"></div>
+    <div class="menu__hamburger--line"></div>
+    <div class="menu__hamburger--line"></div>
+</div>
+
+<ng-template #login>
+    <ul class="menu">
+        <span class="menu__close" (click)="toggleNavbar()">&#10006;</span>
+        <li class="menu__auth menu__li" routerLink="/auth">Login</li>
+    </ul>
+</ng-template>
+
+<ng-template #loginRes>
+    <ul class="menu-res">
+        <span class="menu__close" (click)="toggleNavbar()">&#10006;</span>
+        <li class="menu__auth menu__li" routerLink="/auth">Login</li>
+    </ul>
+</ng-template>

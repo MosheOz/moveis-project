@@ -1,23 +1,23 @@
 [
-  {
-    "id": "1",
-    "title": "The Suicide Squad",
-    "image": "https://m.media-amazon.com/images/M/MV5BNGM3YzdlOWYtNjViZS00MTE2LWE1MWUtZmE2ZTcxZjcyMmU3XkEyXkFqcGdeQXVyODEyMTI1MjA@._V1_UX128_CR0,3,128,176_AL_.jpg",
-    "category": "Drama",
-    "url": "https://www.imdb.com/title/tt6334354"
-  },
-  {
-    "id": "2",
-    "title": "Jungle Cruise",
-    "image": "https://m.media-amazon.com/images/M/MV5BNDE1MGRlNTQtZjc4ZC00MTI0LWEwY2MtODk1YTM2NmFmYTNmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UX128_CR0,3,128,176_AL_.jpg",
-    "category": "Fantasy",
-    "url": "https://www.imdb.com/title/tt0870154"
-  },
-  {
-    "id": "3",
-    "title": "The Green Knight",
-    "image": "https://m.media-amazon.com/images/M/MV5BMjMxNTdiNWMtOWY0My00MjM4LTkwNzMtOGI0YThhN2Q4M2I4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX128_CR0,3,128,176_AL_.jpg",
-    "category": "Action",
-    "url": "https://www.imdb.com/title/tt9243804"
-  }
+    {
+        "id": "1",
+        "title": "The Godfather",
+        "image": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+        "category": "Crime",
+        "url": "https://www.imdb.com/title/tt0068646/"
+    },
+    {
+        "id": "2",
+        "title": "Jungle Cruise",
+        "image": "https://m.media-amazon.com/images/M/MV5BNDE1MGRlNTQtZjc4ZC00MTI0LWEwY2MtODk1YTM2NmFmYTNmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg",
+        "category": "Action",
+        "url": "https://www.imdb.com/title/tt0870154"
+    },
+    {
+        "id": 96607,
+        "title": "My movie",
+        "category": "Drama",
+        "url": "https://www.imdb.com/title/tt6334354/mediaviewer/rm2855063297/",
+        "image": "https://m.media-amazon.com/images/M/MV5BNGM3YzdlOWYtNjViZS00MTE2LWE1MWUtZmE2ZTcxZjcyMmU3XkEyXkFqcGdeQXVyODEyMTI1MjA@._V1_.jpg"
+    }
 ]

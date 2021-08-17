@@ -7,8 +7,8 @@ const validateImage = async (req, res, next) => {
 
   if (!id) {
     return res
-      .status(401)
-      .send({ error: "Movie link must be a valid IMDB link" });
+      .status(400)
+      .send({ err: "Movie link must be a valid IMDB link" });
   }
 
   const API = `https://imdb-api.com/en/API/Search/k_7zqce44j/${id}`;
@@ -21,8 +21,8 @@ const validateImage = async (req, res, next) => {
       response.status !== 202
     ) {
       return res
-        .status(401)
-        .send({ error: "Movie link must be a valid IMDB link" });
+        .status(400)
+        .send({ err: "Movie link must be a valid IMDB link" });
     }
 
     const moviePosterArray = response.data.results[0].image.split("/");
@@ -34,13 +34,13 @@ const validateImage = async (req, res, next) => {
 
     if (!isPosterHash) {
       return res
-        .status(401)
-        .send({ error: "Image link should be IMDB and Movie Poster only!" });
+        .status(400)
+        .send({ err: "Image link should be IMDB and Movie Poster only!" });
     }
   } catch (err) {
     return res
-      .status(401)
-      .send({ error: "Movie link must be a valid IMDB link" });
+      .status(400)
+      .send({ err: "Movie link must be a valid IMDB link" });
   }
 
   next();

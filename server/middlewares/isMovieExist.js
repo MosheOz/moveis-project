@@ -8,7 +8,7 @@ const isMovieExist = async (req, res, next) => {
   const isMovieExist = movies.find((m) => m.title === title);
 
   if (isMovieExist) {
-    return res.status(403).send({ error: "Movie already exist" });
+    return res.status(400).send({ err: "Movie already exist" });
   }
   next();
 };

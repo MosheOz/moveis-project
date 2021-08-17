@@ -1,1 +1,10 @@
-<p>movie-card works!</p>
+<div class="movie-card">
+    <span class="movie-card__close" (click)="onRemoveMovie()" *ngIf="isAdmin">&#10006;</span>
+    <div class="movie-card__image-container">
+        <img class="movie-card__image-container-img" [src]="movie.image">
+    </div>
+    <div class="movie-card__details" (click)="goToMovie()">
+        <span>{{ movie.title }}</span>
+        <span class="movie-card__details__category"> / {{ movie.category }}</span>
+    </div>
+</div>

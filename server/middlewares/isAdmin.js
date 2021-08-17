@@ -1,7 +1,13 @@
 const getUsers = require("../utils/get-users");
 
 const isAdmin = async (req, res, next) => {
-  const { userId } = req.body;
+  let { userId } = req.body;
+
+  if (!userId) {
+    userId = req.params.userId;
+    console.log("userId ", userId);
+    if (!userId) return res.status(403).send({ err: "No permissions" });
+  }
 
   const users = await getUsers();
 

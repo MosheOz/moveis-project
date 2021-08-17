@@ -10,13 +10,13 @@ const isMovieExist = require("../middlewares/isMovieExist");
 const validateImage = require("../middlewares/validateImage");
 const getData = require("../utils/get-movies");
 
-router.get("/movies", async (req, res) => {
+router.get("/", async (req, res) => {
   const data = await getData();
   res.send(data);
 });
 
 router.put(
-  "/movies",
+  "/",
   isAdmin,
   isEnglish,
   checkLength,
@@ -33,7 +33,7 @@ router.put(
 );
 
 router.post(
-  "/movies",
+  "/",
   isAdmin,
   isMovieExist,
   isEnglish,
@@ -46,6 +46,12 @@ router.post(
     res.send(data);
   }
 );
+
+router.delete("/:id/:userId", isAdmin, async (req, res) => {
+  const data = await deleteData(req.params.id);
+
+  res.send(data);
+});
 
 const jsonPath = path.join(__dirname, "..", "movies.json");
 
@@ -76,8 +82,6 @@ const addData = async (body) => {
   try {
     let data = await getData();
 
-    if (data.some((m) => m.title === title)) return false;
-
     data = [
       ...data,
       { id: Math.round(Math.random() * 100000), title, category, url, image },
@@ -85,6 +89,21 @@ const addData = async (body) => {
 
     fs.writeFileSync(jsonPath, JSON.stringify(data));
     return data;
+  } catch (err) {
+    console.error(err);
+    return { error: err };
+  }
+};
+
+// edit file
+const deleteData = async (id) => {
+  const data = await getData();
+
+  try {
+    const newData = data.filter((movie) => movie.id !== id);
+
+    fs.writeFileSync(jsonPath, JSON.stringify(newData));
+    return newData;
   } catch (err) {
     console.error(err);
     return { error: err };

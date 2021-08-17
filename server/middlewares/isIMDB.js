@@ -11,17 +11,17 @@ const isIMDB = async (req, res, next) => {
       response.status !== 202
     ) {
       return res
-        .status(401)
-        .send({ error: "Movie link must be a valid IMDB link" });
+        .status(400)
+        .send({ err: "Movie link must be a valid IMDB link" });
     }
   } catch (err) {
     return res
-      .status(401)
-      .send({ error: "Movie link must be a valid IMDB link" });
+      .status(400)
+      .send({ err: "Movie link must be a valid IMDB link" });
   }
 
   if (extractHostname(url)) {
-    return res.status(401).send({ error: "Movie link must be an IMDB link" });
+    return res.status(400).send({ err: "Movie link must be an IMDB link" });
   }
   next();
 };

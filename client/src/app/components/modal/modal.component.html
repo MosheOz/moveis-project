@@ -1,0 +1,57 @@
+<div>
+    <header>
+        <h1>{{ modalData.title }}</h1>
+    </header>
+    <section *ngIf="modalData.description">
+        <p>{{ modalData.description }}</p>
+    </section>
+    <footer *ngIf="modalData.isFooter">
+        <form class="form" [formGroup]="form" (ngSubmit)="actionFunction()">
+            <section *ngIf="!user">
+                <input type="text" placeholder="Movie title" formControlName="title" class="form__input"
+                    maxlength="30" />
+                <select formControlName="category">
+                    <option *ngFor="let c of categories" [value]="c">
+                        {{ c }}
+                    </option>
+                </select>
+                <input type="text" placeholder="Movie's IMDB URL" formControlName="url" class="form__input" />
+                <input type="text" placeholder="Movie's Image URL" formControlName="image" class="form__input" />
+            </section>
+            <button mat-raised-button type="submit" class="form__button" [disabled]="!form.valid">
+                Add Movie
+            </button>
+
+            <div *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)"
+                class="form__alert">
+                <div *ngIf="form.controls['title'].errors.required">
+                    * Title is required
+                </div>
+                <div *ngIf="form.controls['title'].errors.maxLength">
+                    * Title max length is 30
+                </div>
+            </div>
+
+            <div *ngIf="form.controls['category'].invalid && (form.controls['category'].dirty || form.controls['category'].touched)"
+                class="form__alert">
+                <div *ngIf="form.controls['category'].errors.required">
+                    * Category is required
+                </div>
+            </div>
+
+            <div *ngIf="form.controls['url'].invalid && (form.controls['url'].dirty || form.controls['url'].touched)"
+                class="form__alert">
+                <div *ngIf="form.controls['url'].errors.required">
+                    * Movie's URL is required
+                </div>
+            </div>
+
+            <div *ngIf="form.controls['image'].invalid && (form.controls['image'].dirty || form.controls['image'].touched)"
+                class="form__alert">
+                <div *ngIf="form.controls['image'].errors.required">
+                    * Movie's Image is required
+                </div>
+            </div>
+        </form>
+    </footer>
+</div>

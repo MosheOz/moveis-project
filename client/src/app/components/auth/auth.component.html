@@ -1,1 +1,25 @@
-<p>auth works!</p>
+<div class="auth">
+    <form [formGroup]="form" (ngSubmit)="onAction(user ? 'logout' : 'login')">
+        <section *ngIf="!user">
+            <input type="text" placeholder="Name" formControlName="name" class="auth__input" />
+            <input type="password" placeholder="Password" formControlName="password" class="auth__input" />
+        </section>
+        <button type="submit" class="auth__button" [disabled]="!form.valid && !user">
+            {{ user ? 'Logout' : 'Login' }}
+        </button>
+
+        <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)"
+            class="auth__alert">
+            <div *ngIf="form.controls['name'].errors.required">
+                * Username is required
+            </div>
+        </div>
+        <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)"
+            class="auth__alert">
+            <div *ngIf="form.controls['password'].errors.required">
+                * Password is required
+            </div>
+
+        </div>
+    </form>
+</div>

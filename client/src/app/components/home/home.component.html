@@ -1,3 +1,8 @@
-<div>
-  {{ movies$ | async }}
+<div class="home" *ngIf="(movies$ | async) as movies">
+  <app-movie-card 
+    *ngFor="let m of movies" 
+    [user]="user" 
+    [movie]="m" 
+    (deleteMovie)="deleteMovie($event)">
+  </app-movie-card>
 </div>
