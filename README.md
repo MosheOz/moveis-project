@@ -39,7 +39,7 @@ B. /api/movies (CRUD operation)
   <br />
   9.a ==> Docker for BE - run the following commands:
   <br />
-  1. make sure your're inside the server directory 
+  1. make sure you're inside the server directory 
   <br />
   2. run docker build . -t moshe/node-web-app
   <br />
@@ -49,7 +49,7 @@ B. /api/movies (CRUD operation)
   <br />
   9.b ==> Docker for FE - run the following commands:
   <br />
-  1. make sure your're inside the client directory 
+  1. make sure you're inside the client directory 
   <br />
   2. run docker build . -t moshe/angular-app
   <br />
