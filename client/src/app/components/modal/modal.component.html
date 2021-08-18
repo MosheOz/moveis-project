@@ -7,7 +7,7 @@
     </section>
     <footer *ngIf="modalData.isFooter">
         <form class="form" [formGroup]="form" (ngSubmit)="actionFunction()">
-            <section *ngIf="!user">
+            <section>
                 <input type="text" placeholder="Movie title" formControlName="title" class="form__input"
                     maxlength="30" />
                 <select formControlName="category">
