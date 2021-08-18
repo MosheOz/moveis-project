@@ -8,13 +8,13 @@ to run client side use the following command: 1. npm install. 2. npm start
 3. Delete, Add, Edit movie available on Client and Server side.
 
 4. Example for adding correct movie: 
-  <br />
+<br />
 title: <any>
-  <br />
+<br />
 category: <from dropdown>
-  <br />
+<br />
 url: https://www.imdb.com/title/tt6334354/mediaviewer/rm2855063297/
-  <br />
+<br />
 image: https://m.media-amazon.com/images/M/MV5BNGM3YzdlOWYtNjViZS00MTE2LWE1MWUtZmE2ZTcxZjcyMmU3XkEyXkFqcGdeQXVyODEyMTI1MjA@._V1_.jpg
 
 5. Auth guard available
