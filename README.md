@@ -30,6 +30,8 @@ B. /api/movies (CRUD operation)
 8. App is running as an angular reactive app using rxjs
 
 9. Docker files added to BE and FE accordingly
+  <br />
+  <br />
   9.a ==> Docker for BE - run the following commands:
   <br />
   1. make sure your're inside the server directory 
@@ -38,6 +40,7 @@ B. /api/movies (CRUD operation)
   <br />
   3. docker run -p 3000:3000 -d moshe/node-web-app
   
+  <br />
   <br />
   9.b ==> Docker for FE - run the following commands:
   <br />
