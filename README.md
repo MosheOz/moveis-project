@@ -1,4 +1,9 @@
 # moveis-project
+The server contains movies file and users file.
+<br />
+To login to the app. for regular user => name: user, password: 1234. for admin ==> name: admin, password: admin
+<br />
+<br />
 1. Client side implemented using Angular.
 to run client side use the following command: 1. npm install. 2. npm start
 
